@@ -102,28 +102,28 @@ Cloudflare D1 adalah database relasional SQL serverless yang berbasis SQLite.
 ---
 
 ## 🏗 Langkah 3: Membuat Struktur Tabel (Schema) & Data Dummy (Seed)
-Kita memiliki dua file SQL:
-* `schema.sql` (untuk membuat tabel: Fakultas, Prodi, Mahasiswa, Mata Kuliah, KRS).
-* `seed.sql` (untuk memasukkan 50 baris data dummy mahasiswa dan nilai akademik).
+Kita memiliki dua file SQL di dalam folder `db/`:
+* `db/schema.sql` (untuk membuat tabel: Fakultas, Prodi, Mahasiswa, Mata Kuliah, KRS).
+* `db/seed.sql` (untuk memasukkan 50 baris data dummy mahasiswa dan nilai akademik).
 
 ### A. Eksekusi Secara Lokal (Untuk Simulasi Komputer Sendiri)
 Jalankan perintah berikut untuk mengisi database simulasi lokal:
 ```bash
 # 1. Membuat struktur tabel
-npx wrangler d1 execute akademik-db --local --file=./schema.sql
+npx wrangler d1 execute akademik-db --local --file=./db/schema.sql
 
 # 2. Memasukkan data dummy mahasiswa & nilai
-npx wrangler d1 execute akademik-db --local --file=./seed.sql
+npx wrangler d1 execute akademik-db --local --file=./db/seed.sql
 ```
 
 ### B. Eksekusi di Cloud / Production (Database Cloudflare Asli)
 Jika ingin mengunggah data ini ke server Cloudflare D1 yang berada di internet:
 ```bash
 # 1. Membuat tabel di cloud
-npx wrangler d1 execute akademik-db --remote --file=./schema.sql
+npx wrangler d1 execute akademik-db --remote --file=./db/schema.sql
 
 # 2. Memasukkan data ke cloud
-npx wrangler d1 execute akademik-db --remote --file=./seed.sql
+npx wrangler d1 execute akademik-db --remote --file=./db/seed.sql
 ```
 
 ---
@@ -205,7 +205,7 @@ GROUP BY m.nim, m.nama;
 
 ### 🔴 Error: `D1_ERROR: no such table: mahasiswa`
 **Penyebab**: Anda belum membuat tabel di database yang aktif (lokal/remote).
-**Solusi**: Pastikan Anda telah menjalankan perintah `npx wrangler d1 execute akademik-db --file=./schema.sql` (tambahkan `--local` jika mengetes di komputer sendiri).
+**Solusi**: Pastikan Anda telah menjalankan perintah `npx wrangler d1 execute akademik-db --file=./db/schema.sql` (tambahkan `--local` jika mengetes di komputer sendiri).
 
 ### 🔴 Error: `Cannot read properties of undefined (reading 'prepare')` atau Binding hilang di Web UI
 **Penyebab**: Koneksi binding antara kode JavaScript `env.akademik_db` dengan database di Cloudflare terputus.
