@@ -1,22 +1,16 @@
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "akademik-dashboard",
-	"main": "src/index.js",
-	"compatibility_date": "2026-06-30",
-	"assets": {
-		"directory": "./public"
-	},
-	"d1_databases": [
-		{
-			"binding": "mis_contoh_db",
-			"database_name": "mis-contoh-db",
-			"database_id": "a7a1fb68-faca-4eef-909b-a0cbfaddd7db"
-		},
-		{
-			"binding": "mis_contoh_db",
-			"database_name": "mis-contoh-db",
-			"database_id": "a7a1fb68-faca-4eef-909b-a0cbfaddd7db",
-			"remote": true
-		}
-	]
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "akademik-dashboard",
+  "main": "src/index.js",
+  "compatibility_date": "2026-06-30",
+  "assets": {
+    "directory": "./public"
+  },
+  "d1_databases": [
+    {
+      "binding": "mis_contoh_db",
+      "database_name": "mis-contoh-db",
+      "database_id": "a7a1fb68-faca-4eef-909b-a0cbfaddd7db"
+    }
+  ]
 }
