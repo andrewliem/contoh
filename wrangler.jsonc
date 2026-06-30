@@ -8,9 +8,9 @@
   },
   "d1_databases": [
     {
-      "binding": "akademik_db",
-      "database_name": "akademik-db",
-      "database_id": "8efc6433-9db7-4eb4-b38b-86e5014ef381"
+      "binding": "mis-contoh",
+      "database_name": "mis-contoh",
+      "database_id": "467dbde6-dbec-4df4-9d2e-035ce2da336b"
     }
   ]
 }
