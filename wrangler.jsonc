@@ -3,6 +3,9 @@
   "name": "akademik-dashboard",
   "main": "src/index.js",
   "compatibility_date": "2026-06-30",
+  "assets": {
+    "directory": "./public"
+  },
   "d1_databases": [
     {
       "binding": "akademik_db",
