@@ -36,6 +36,29 @@ Sebelum mulai, pastikan Anda telah memiliki:
 
 ---
 
+## 🏗 Konsep Arsitektur: /public vs /src (Frontend vs Backend)
+
+Penting bagi mahasiswa untuk memahami mengapa project ini dibagi menjadi dua folder utama:
+
+| Aspek | 📁 Folder `/public` (Frontend / Client-side) | 📁 Folder `/src` (Backend / Server-side) |
+|---|---|---|
+| **Definisi** | Tempat berkas statis yang dilihat dan berinteraksi langsung dengan pengguna. | Tempat logika bisnis, keamanan, dan pengolahan data server. |
+| **Isi File** | `index.html` (HTML untuk struktur, CSS untuk desain, Javascript untuk interaksi browser). | `index.js` (kode JavaScript Worker yang berjalan di server Cloudflare). |
+| **Lokasi Berjalan** | Dieksekusi di dalam **Browser Pengguna** (Chrome, Safari, Edge). | Dieksekusi di **Cloudflare Edge Server** (Serverless). |
+| **Akses Database** | **Tidak Bisa** mengakses database D1 secara langsung (karena alasan keamanan). | **Bisa & Wajib** mengakses database D1 secara langsung menggunakan API Cloudflare (`env.akademik_db`). |
+| **Keamanan** | Kode ini bersifat publik (siapa saja bisa melihat kode HTML/JS lewat *Inspect Element*). | Kode ini rahasia/aman (pengguna tidak bisa melihat isi kode di dalam `index.js`). |
+
+```mermaid
+graph LR
+    Browser[Browser / Client] -->|1. Request Web| public[public/index.html]
+    Browser -->|2. Request Data /api/*| src[src/index.js]
+    src -->|3. Query SQL| D1[(D1 Database)]
+    D1 -->|4. Return Data| src
+    src -->|5. Send JSON| Browser
+```
+
+---
+
 ## 🗄 Langkah 2: Membuat Database Cloudflare D1
 Cloudflare D1 adalah database relasional SQL serverless yang berbasis SQLite.
 
