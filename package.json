@@ -1,0 +1,13 @@
+{
+  "name": "mis-d1-sql-dashboard",
+  "version": "1.0.0",
+  "description": "Cloudflare D1 SQL Dashboard for MIS Academic example",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "npx wrangler dev",
+    "deploy": "npx wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^3.105.0"
+  }
+}

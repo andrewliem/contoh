@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "akademik-dashboard",
+  "main": "src/index.js",
+  "compatibility_date": "2026-06-30",
+  "d1_databases": [
+    {
+      "binding": "akademik_db",
+      "database_name": "akademik-db",
+      "database_id": "8efc6433-9db7-4eb4-b38b-86e5014ef381"
+    }
+  ]
+}

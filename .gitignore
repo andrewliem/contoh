@@ -1,0 +1,11 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Wrangler local states
+.wrangler/
+.dev.vars
+
+# OS generated files
+.DS_Store
+Thumbs.db
